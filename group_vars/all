@@ -1,0 +1,14 @@
+---
+#Network
+hotspot_interface: wlan0
+lan_interface: enp2s0
+client_interface: wlan1
+
+#System
+project_name: kajouboss
+project_type: kajou
+kajou_website_path: /media/hdd/kajou-website
+timezone: Europe/Paris
+username: cap
+password: $6$YcJS1HjRAv/$1bUosoPalzHEvfpx71UhnG6vCeckTGbA5U1i6UpA8X21Jrv7fYRPyNrq/YWuiBp3xQWd5kRRhrKKPHcbTkkfQ/
+repo_url: https://github.com/kajounet/kajouboss.git

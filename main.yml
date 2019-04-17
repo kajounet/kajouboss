@@ -1,0 +1,10 @@
+---
+- hosts: all
+
+  roles:
+    - cleanup
+    - update_device_config
+    - setup_system
+    - balena-engine
+    - containers
+    - { role: 'syncthing', tags: 'syncthing' }

@@ -1,0 +1,30 @@
+---
+- name: Create a folder for configuration file
+  file:
+    path: /media/hdd/{{item}}
+    recurse: yes
+    state: directory
+    owner: "{{username}}"
+  with_items:
+    - config-files/traefik
+    - config-files/nginx
+    - kajou-website
+
+- name: Copy configuration files
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: 'traefik.toml', dest: '/media/hdd/config-files/traefik/traefik.toml' }
+    - { src: 'nginx.conf', dest: '/media/hdd/config-files/nginx/nginx.conf' }
+
+- name: Copy configuration templates
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: 'default.conf.j2', dest: '/media/hdd/config-files/nginx/default.conf' }
+
+- include: traefik.yml
+
+- include: nginx.yml
