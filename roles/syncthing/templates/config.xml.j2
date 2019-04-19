@@ -45,7 +45,7 @@
     </folder>
     <device id="{{ syncthing_master_id_device }}" name="Master" compression="metadata" introducer="true" skipIntroductionRemovals="false" introducedBy="">
         <address>dynamic</address>
-        <address>{{syncthing_master_ip_address}}:{syncthing_master_port}</address>
+        <address>{{syncthing_master_ip_address}}:{{syncthing_master_port}}</address>
         <paused>false</paused>
     </device>
     <device id="{{ device_id.stdout }}" name="{{ full_device_name }}" compression="metadata" introducer="true" skipIntroductionRemovals="false" introducedBy="">
