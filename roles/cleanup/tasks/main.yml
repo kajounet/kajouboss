@@ -56,4 +56,12 @@
    # - nginx.conf
    # - nginx.default
    - /srv/
+   - /etc/udev/rules.d/81-modem.rules
+   - /etc/udev/rules.d/80-uploaded.rules
    - /etc/hotplug.d/iface/90-ar2f
+   - /var/log/celery/
+   - /var/log/fsck/
+   - /var/log/installer/
+   - /var/log/nginx/
+   - /var/log/rabbitmq/
+   - /var/log/samba/
