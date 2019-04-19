@@ -3,7 +3,7 @@
 
   roles:
     - cleanup
-    - update_device_config
+    - { role: 'update_device_config', tags: 'always' }
     - setup_system
     - balena-engine
     - containers
