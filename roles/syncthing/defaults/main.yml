@@ -1,1 +1,5 @@
 syncthing_master_id_device: AGKI2IC-DYA4OFT-4A3EP62-ODLMDFP-IAYAJX3-LQHQUQQ-S7GDZVV-JOR3JA2
+syncthing_master_ip_address: 3.8.62.199
+syncthing_master_port: 22000
+syncthing_localhost: https://localhost:8384
+syncthing_folder_id_kajou_website: 7tnzo-s6na9

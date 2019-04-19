@@ -1,0 +1,32 @@
+#!/bin/sh
+
+. $IPKG_INSTROOT/lib/functions.sh                                                                                                                                                                                                                                      [640/959]
+. $IPKG_INSTROOT/lib/functions/network.sh
+
+[ "$ACTION" = ifup ] || exit 0
+
+[ "$ACTION" = "ifup" -a "$INTERFACE" = "wan" -o "$INTERFACE" = "modem" ] && {
+
+  while [ 1 ]; do
+
+    host={{syncthing_localhost}}
+    apikey={{api_key.stdout}}
+    folder={{syncthing_folder_id_kajou_website}}
+
+    if `curl -skH "X-API-Key: $apikey" "$host/rest/system/connections" |jq  '.connections."{{syncthing_master_id_device}}".connected'` ; then
+
+      sleep 40s;
+
+      if ! `curl -skH "X-API-Key: $apikey" "$host/rest/db/status?folder=$folder" | grep -q 'receiveOnlyChanged.*": [1-9]'` ; then
+        exit 0
+      fi
+
+      curl -X POST -skH "X-API-Key: $apikey" "$host/rest/db/revert?folder=$folder"
+
+      exit 0
+
+    else
+      sleep 20s;
+    fi
+  done;
+}

@@ -59,6 +59,11 @@
   register: api_key
   when: config_file.stat.exists == False
 
+- name: Generate a folder ID for the log share
+  shell: echo `hostname` | md5sum | cut -c1-11
+  register: share_log_id
+  when: config_file.stat.exists == False
+
 - name: Copy custom config file
   become: true
   become_user: "{{ username }}"
@@ -69,6 +74,9 @@
   notify: restart syncthing
   when: config_file.stat.exists == False
 
-- name: Get Syncthing version
-  shell: syncthing -version | cut -d " " -f2 ; echo
-  register: syncthing_version
+- name: Copy syncthing-revert script
+  template:
+    src: 60-syncthing-revert.j2
+    dest: /etc/hotplug.d/iface/60-syncthing-revert
+    mode: 0755
+  when: config_file.stat.exists == False
