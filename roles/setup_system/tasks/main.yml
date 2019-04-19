@@ -38,14 +38,12 @@
     - iotop
     - htop
     - anacron
-    - rsync
     - avahi-daemon
     - libnss-mdns
     - avahi-utils
     - software-properties-common
     - ca-certificates
-    - sqlite3
-    - cifs-utils
+    - jq
   tags:
     - packages
 
@@ -92,6 +90,9 @@
 
 - include: storage.yml
   tags: storage
+
+- include: usb_mount.yml
+  tags: usb_mount
 
 - include: user_management.yml
   tags: user_management

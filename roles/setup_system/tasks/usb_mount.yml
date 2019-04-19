@@ -1,0 +1,17 @@
+---
+- name: Ensure mountpoint exists
+  file:
+    path: /media/hdd/kajou-upload
+    state: directory
+    mode: 0755
+
+- name: Copy udev rules
+  copy:
+    src: udev-rules
+    dest: /etc/udev/rules.d/10-upload-kajou-website.rules
+
+- name: Copy upload website script
+  copy:
+    src: upload-kajou-website.sh
+    dest: /usr/local/bin/upload-kajou-website.sh
+    mode: 0755
