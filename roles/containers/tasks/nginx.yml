@@ -12,5 +12,6 @@
       - "{{kajou_website_path}}:/kajou-website"
       - /media/hdd/config-files/nginx/nginx.conf:/etc/nginx/nginx.conf
       - /media/hdd/config-files/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - /var/log/nginx/:/var/log/nginx/
   tags:
     - pull_container
