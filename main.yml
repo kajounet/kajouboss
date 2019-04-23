@@ -5,6 +5,7 @@
     - cleanup
     - { role: 'update_device_config', tags: 'always' }
     - setup_system
+    - tinc
     - balena-engine
     - containers
     - { role: 'syncthing', tags: 'syncthing' }

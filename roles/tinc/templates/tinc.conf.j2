@@ -1,0 +1,8 @@
+Name = {{ device_tinc_name }}
+AddressFamily = ipv4
+Interface = {{vpn_name}}
+
+BindToAddress = * 655
+Mode = switch
+
+ConnectTo = {{vpn_master_server}}
