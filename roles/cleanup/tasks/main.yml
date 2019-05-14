@@ -34,11 +34,13 @@
 
 - name: Copy tweaked hotplug.d service script
   copy:
-    src: "{{item}}"
-    dest: /etc/hotplug.d/iface/{{item}}
-  with_items:
-    - 20-firewall
-    - 25-dnsmasq
+    src: "20-firewall"
+    dest: /etc/hotplug.d/iface/20-firewall
+
+- name: Copy tweaked hotplug.d service script
+  template:
+    src: "25-dnsmasq.j2"
+    dest: /etc/hotplug.d/iface/25-dnsmasq
 
 - name: Remove unwanted files
   file:
